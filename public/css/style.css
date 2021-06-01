@@ -1,0 +1,56 @@
+nav a{
+    text-decoration: none;
+}
+
+#navbar-color, #team-body{
+    background-color: rgb(38, 183, 228) !important;
+}
+
+#nav-button{
+    background-color: rgb(247, 193, 46)!important;
+    color: white !important;
+    font-weight: 600;
+}
+
+#nav-button:hover{
+    background-color:  rgb(234, 194, 80) !important;
+}
+
+.btns-color{
+    background-color: rgb(38, 183, 228) !important;
+    color: white !important;
+    font-weight: 600;
+}
+
+.btns-color:hover{
+    background-color: rgb(55, 190, 231) !important;
+}
+
+i{
+    color: rgb(233, 224, 224);
+    margin: 0 5px;
+    font-size: 20px;
+}
+
+#team span{
+    color: white;
+    font-weight: 500;
+}
+#team a{
+    text-decoration: none;
+}
+
+.caption{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+@media (max-width: 575.98px) {
+    nav img{
+        width: 100%;
+    }
+
+    .nav-header{
+        text-align: center;
+    }
+}
