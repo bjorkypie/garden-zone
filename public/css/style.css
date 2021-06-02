@@ -3,27 +3,28 @@ nav a{
 }
 
 #navbar-color, #team-body{
-    background-color: rgb(38, 183, 228) !important;
+    background-color: #94C752 !important;
 }
 
-#nav-button{
-    background-color: rgb(247, 193, 46)!important;
+#nav-button, .main-button{
+    background-color: #CB6E7A!important;
     color: white !important;
     font-weight: 600;
 }
 
-#nav-button:hover{
-    background-color:  rgb(234, 194, 80) !important;
+#nav-button:hover, .main-button:hover{
+    background-color: #CB6E7A !important;
+    color: black !important;
 }
 
 .btns-color{
-    background-color: rgb(38, 183, 228) !important;
+    background-color: #94C752 !important;
     color: white !important;
     font-weight: 600;
 }
 
 .btns-color:hover{
-    background-color: rgb(55, 190, 231) !important;
+    background-color: #94C752 !important;
 }
 
 i{
@@ -44,6 +45,8 @@ i{
     font-size: 25px;
     font-weight: 500;
 }
+
+
 
 @media (max-width: 575.98px) {
     nav img{

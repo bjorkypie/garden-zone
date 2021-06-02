@@ -1,6 +1,7 @@
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 
+
 module.exports = {
   getProfile: async (req, res) => {
     try {
@@ -29,17 +30,14 @@ module.exports = {
   createPost: async (req, res) => {
     try {
       // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
-
+      //const result = await cloudinary.uploader.upload(req.file.path);
       await Post.create({
-        title: req.body.title,
-        image: result.secure_url,
-        cloudinaryId: result.public_id,
-        caption: req.body.caption,
+        zip: req.body.zip,
+        month: req.body.month,
         likes: 0,
         user: req.user.id,
       });
-      console.log("Post has been added!");
+      console.log("Zip has been added!");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
@@ -73,4 +71,52 @@ module.exports = {
       res.redirect("/profile");
     }
   },
+  /*getZone: async (req, res) => {
+    //get zone from USDA based zone api
+    try {
+      const request = require("request");
+      let options = {
+        'method': 'GET',
+        'url': `phzmapi.org/${req.body.zip}.json`,
+        'headers':{}
+      };
+      const zone = request(options, (error, response) => {
+        if (error)
+          throw new Error(error);
+        console.log(response.body);
+      });
+      await Post.findOneAndUpdate(
+        { _id: req.params.id }, //_id: req.params.zebra, how we find our matching ID 
+        {
+          $inc: { myZone: zone },
+        }
+      )
+      res.render("profile.ejs", { zone: zone });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  
+  getPlants: async (req, res) => {
+    //get plants that are in season based on month and zone 
+    //render in browser
+  },
+  getRecipe: async (req, res) => {
+    //get recipe from plant input
+  },
+  saveRecipe: async (req, res) => {
+    //get recipe from edamam api
+    //upload image to cloudinary
+    //save recipe to user profile
+  },
+  madeRecipe: async (req, res) => {
+    //find recipe and update
+    //say you made this recipe
+  },
+  deleteRecipe: async (req, res) => {
+    //find recipe by id
+    //delete image from cloudinary
+    //delete recipe from db
+  }
+  */
 };

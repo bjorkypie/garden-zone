@@ -1,19 +1,11 @@
 const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
-  title: {
+  zip: {
     type: String,
     required: true,
   },
-  image: {
-    type: String,
-    require: true,
-  },
-  cloudinaryId: {
-    type: String,
-    require: true,
-  },
-  caption: {
+  month: {
     type: String,
     required: true,
   },
@@ -25,6 +17,10 @@ const PostSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
+  // myZone: {
+  //   type: String,
+  //   required: false,
+  // },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -32,3 +28,16 @@ const PostSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Post", PostSchema);
+
+/*
+later, include a saved recipe schema
+also, include these:
+zone: {
+    type: String,
+    require: true,
+  },
+  plant: {
+    type: String,
+    require: true,
+  },
+*/

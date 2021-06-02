@@ -2,12 +2,11 @@
 <div class="container mb-5">
   <div class="row justify-content-center mt-5">
     <div class="col-sx col-sm-6 border rounded">
-      <h2><%= post.title %></h2>
-      <img class="img-fluid border rounded" src="<%= post.image%>" />
+      <h2><%= post.zip %></h2>
       <div class="row justify-content-around justify-content-sm-between">
         <form
           class="col-sm-auto mr-sm-auto"
-          action="/post/likePost/<%= post.id %>?_method=PUT"
+          action="/post/likes/<%= post.id %>?_method=PUT"
           method="POST"
         >
           <button class="btn btns-color fa fa-heart" type="submit"></button>
@@ -25,7 +24,7 @@
       </div>
     </div>
     <div class="col-xs col-sm-3 mt-5">
-      <p class="caption"><%= post.caption %></p>
+      <p class="month"><%= post.month %></p>
     </div>
     <div class="col-6 mt-5">
       <a class="mt-1 btn btns-color" href="/profile">Return to Profile</a>

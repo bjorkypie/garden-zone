@@ -7,38 +7,38 @@
           <p><strong>Email</strong>: <%= user.email %></p>
       </div>
       <div class="mt-5">
-          <h2>Add your pet</h2>
+          <h2>What's your zone?</h2>
           <form action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
-                  <label for="title" class="form-label">Pet</label>
-                  <input type="text" class="form-control" id="title" name="title">
+                  <label for="zip" class="form-label">Zip Code</label>
+                  <input id="zip" name="zip" type="text" pattern="[0-9]*">
               </div>
               <div class="mb-3">
-                <label for="caption" class="form-label">Description</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
+                <label for="month" class="form-label">Month</label>
+                <input type="month" id="month" name="month">
               </div>
-              <div class="mb-3">
+              <!-- <div class="mb-3">
                 <label for="imgUpload" class="form-label">Image</label>
                 <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-              <button type="submit" class="btn btns-color" value="Upload">Submit</button>
+              </div> -->
+              <button type="submit" class="btn main-button" value="/post/getZone">Submit</button>
             </form>
       </div>
     </div>
-      <div class="col-sm-8">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-5 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid border rounded" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
-        <div class="row justify-content-center mt-3">
-          <a class="btn btns-color btn-lg btn-block" href="/feed">Return to Feed</a>
-        </div>  
+    
+    <div class="col-sm-8">
+      <ul class="row list-unstyled">
+      <% for(var i=0; i<posts.length; i++) {%>
+        <li class="col-5 justify-content-between mt-5">
+          <p><%= posts[i].zip %></p>
+          <p><%= posts[i].zone %></p>
+        </li>
+      <% } %>
+      </ul>
+      <div class="row justify-content-center mt-3">
+        <a class="btn btns-color btn-lg btn-block" href="/feed">Return to Feed</a>
       </div>  
+    </div>  
   </div>
 </div>
 
