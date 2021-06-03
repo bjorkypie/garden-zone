@@ -1,5 +1,6 @@
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
+const fetch = require("..")
 
 
 module.exports = {
@@ -71,24 +72,25 @@ module.exports = {
       res.redirect("/profile");
     }
   },
-  /*getZone: async (req, res) => {
+  /*
+  getZone: async (req, res) => {
     //get zone from USDA based zone api
     try {
-      const request = require("request");
-      let options = {
-        'method': 'GET',
-        'url': `phzmapi.org/${req.body.zip}.json`,
-        'headers':{}
+      // Find post by id
+      let post = await Post.findById({ _id: req.params.id });
+      const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
       };
-      const zone = request(options, (error, response) => {
-        if (error)
-          throw new Error(error);
-        console.log(response.body);
-      });
+      
+      const zone = await fetch(`phzmapi.org/${post.zip}.json`, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
       await Post.findOneAndUpdate(
         { _id: req.params.id }, //_id: req.params.zebra, how we find our matching ID 
         {
-          $inc: { myZone: zone },
+          zone: zone
         }
       )
       res.render("profile.ejs", { zone: zone });
@@ -96,7 +98,8 @@ module.exports = {
       console.log(err);
     }
   },
-  
+  */
+  /*
   getPlants: async (req, res) => {
     //get plants that are in season based on month and zone 
     //render in browser
