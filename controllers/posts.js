@@ -1,6 +1,5 @@
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
-const fetch = require("..")
 
 
 module.exports = {
