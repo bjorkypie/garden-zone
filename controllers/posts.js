@@ -71,7 +71,7 @@ module.exports = {
       res.redirect("/profile");
     }
   },
-  /*
+  
   getZone: async (req, res) => {
     //get zone from USDA based zone api
     try {
@@ -97,7 +97,7 @@ module.exports = {
       console.log(err);
     }
   },
-  */
+  
   /*
   getPlants: async (req, res) => {
     //get plants that are in season based on month and zone 
