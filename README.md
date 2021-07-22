@@ -1,27 +1,17 @@
-# Install
+# Welcome!
 
-`npm install`
-
----
-
-# Things to make it run
-
-- Create a .env file and add the following as key = value
-- PORT = 2121 (can be any port example: 3000)
-- DB_STRING = your database URI
-- CLOUD_NAME = your cloudinary cloud name
-- API_KEY = your cloudinary api key
-- API_SECRET = your cloudinary api secret
-
----
+Farmers market produce has less environmental impact, contributes to your local economy, and tastes better than the stuff shipped to big chain grocers. This application is built to suggest ingredients and recipes that are in season, based on USDA hardiness zones. 
 
 # Features
 
 - User enters zip code and date
-- Output list of plants that are in season
-- User selects plant 
-- Serve user random (at first) recipe and allow them to save it to their profile
+- Output list of plants/ingredients that are in season
+- User selects ingredient to work with.
+- Serve user list of recipes that they could make with the selected ingredient.
 
 # Version 2 features
-
+- save recipes to a seasonal 'cookbook'
 - allow users to select favorite plants
+
+# Version 3 features
+- Add 'what do I do with this' feature for folks who subscribe to a CSA, and don't know what to do with an unfamiliar ingredient
