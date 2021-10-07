@@ -1,7 +1,7 @@
 {
-  "name": "binary-upload-boom",
+  "name": "in-season-recipes",
   "version": "1.0.0",
-  "description": "100Devs Social Network",
+  "description": "In Season Recipe App",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
