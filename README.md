@@ -1,3 +1,4 @@
+
 # Welcome!
 
 Farmers market produce has less environmental impact, contributes to your local economy, and tastes better than the stuff shipped to big chain grocers. This application is built to suggest ingredients and recipes that are in season, based on USDA hardiness zones. 
