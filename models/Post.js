@@ -17,10 +17,10 @@ const PostSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  // myZone: {
-  //   type: String,
-  //   required: false,
-  // },
+  zone: {
+    type: String,
+    required: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

@@ -28,16 +28,14 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
-    try {
-      // Upload image to cloudinary
-      //const result = await cloudinary.uploader.upload(req.file.path);
+    try{
       await Post.create({
         zip: req.body.zip,
         month: req.body.month,
         likes: 0,
         user: req.user.id,
+        zone: req.zone
       });
-      console.log("Zip has been added!");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
@@ -72,31 +70,31 @@ module.exports = {
     }
   },
   
-  getZone: async (req, res) => {
-    //get zone from USDA based zone api
-    try {
-      // Find post by id
-      let post = await Post.findById({ _id: req.params.id });
-      const requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-      };
+  // getZone: async (req, res) => {
+  //   //get zone from USDA based zone api
+  //   try {
+  //     // Find post by id
+  //     let post = await Post.findById({ _id: req.params.id });
+  //     const requestOptions = {
+  //       method: 'GET',
+  //       redirect: 'follow'
+  //     };
       
-      const zone = await fetch(`phzmapi.org/${post.zip}.json`, requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-      await Post.findOneAndUpdate(
-        { _id: req.params.id }, //_id: req.params.zebra, how we find our matching ID 
-        {
-          zone: zone
-        }
-      )
-      res.render("profile.ejs", { zone: zone });
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  //     const zone = await fetch(`phzmapi.org/${post.zip}.json`, requestOptions)
+  //       .then(response => response.text())
+  //       .then(result => console.log('zone has been added!'))
+  //       .catch(error => console.log('error', error));
+  //     await Post.findOneAndUpdate(
+  //       { _id: req.params.id }, //_id: req.params.zebra, how we find our matching ID 
+  //       {
+  //         zone: zone
+  //       }
+  //     )
+  //     res.render("profile.ejs", { zone: zone });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
   
   /*
   getPlants: async (req, res) => {
