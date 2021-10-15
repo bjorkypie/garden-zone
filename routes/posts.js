@@ -8,10 +8,12 @@ const { getZone } = require("../middleware/zones")
 //Post Routes - simplified for now
 router.get("/:id", ensureAuth, postsController.getPost);
 
-router.post("/createPost", getZone, postsController.createPost);
+router.post("/create-post", getZone, postsController.createPost);
 
-router.put("/likePost/:id", postsController.likePost); //"/likePost/:zebra"
+// router.put("/in-season", postsController.getPlants);
 
-router.delete("/deletePost/:id", postsController.deletePost);
+router.put("/like-post/:id", postsController.likePost); //"/likePost/:zebra"
+
+router.delete("/delete-post/:id", postsController.deletePost);
 
 module.exports = router;

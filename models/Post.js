@@ -6,7 +6,7 @@ const PostSchema = new mongoose.Schema({
     required: true,
   },
   month: {
-    type: String,
+    type: Number,
     required: true,
   },
   likes: {
@@ -17,9 +17,9 @@ const PostSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  zone: {
-    type: String,
-    required: false,
+  usdaZoneData:{
+    type: Object,
+    required: true,
   },
   createdAt: {
     type: Date,

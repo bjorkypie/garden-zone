@@ -1,5 +1,6 @@
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
+// const Plant = require("../models/Plant")
 
 
 module.exports = {
@@ -28,13 +29,14 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
+    console.log(req.body.month, typeof Number(req.body.month))
     try{
       await Post.create({
         zip: req.body.zip,
-        month: req.body.month,
+        month: req.body.month.value,
         likes: 0,
         user: req.user.id,
-        zone: req.zone
+        usdaZoneData: req.body.zoneData
       });
       res.redirect("/profile");
     } catch (err) {
@@ -69,38 +71,22 @@ module.exports = {
       res.redirect("/profile");
     }
   },
+
   
-  // getZone: async (req, res) => {
-  //   //get zone from USDA based zone api
-  //   try {
-  //     // Find post by id
-  //     let post = await Post.findById({ _id: req.params.id });
-  //     const requestOptions = {
-  //       method: 'GET',
-  //       redirect: 'follow'
-  //     };
-      
-  //     const zone = await fetch(`phzmapi.org/${post.zip}.json`, requestOptions)
-  //       .then(response => response.text())
-  //       .then(result => console.log('zone has been added!'))
-  //       .catch(error => console.log('error', error));
-  //     await Post.findOneAndUpdate(
-  //       { _id: req.params.id }, //_id: req.params.zebra, how we find our matching ID 
-  //       {
-  //         zone: zone
-  //       }
-  //     )
-  //     res.render("profile.ejs", { zone: zone });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
+  // getPlants: async (req, res) => {
+  //   //get plants that are in season based on month and zone 
+  //   try{
+  //     let post = await Post.findById({_id: req.params.id })
+  //     const query = seasonalityByZone[post.usdaZoneData.zone]
+  //     let plants = await Plant.find({ query: post.month })
+  //     console.log(plants)
+    
+  //   //render in browser
+  //   }catch(err){
+  //   res.redirect("/profile")
+  // }
   // },
-  
   /*
-  getPlants: async (req, res) => {
-    //get plants that are in season based on month and zone 
-    //render in browser
-  },
   getRecipe: async (req, res) => {
     //get recipe from plant input
   },
