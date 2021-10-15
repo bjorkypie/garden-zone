@@ -29,11 +29,10 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
-    console.log(req.body.month, typeof Number(req.body.month))
     try{
       await Post.create({
         zip: req.body.zip,
-        month: req.body.month.value,
+        month: Number(req.body.month),
         likes: 0,
         user: req.user.id,
         usdaZoneData: req.body.zoneData
