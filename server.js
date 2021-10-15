@@ -10,7 +10,7 @@ const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
-//const fetch = require("node-fetch");
+const cors = require("cors")
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -50,6 +50,9 @@ app.use(
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+// use cors
+app.use(cors());
 
 //Use flash messages for errors, info, ect...
 app.use(flash());

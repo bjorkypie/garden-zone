@@ -6,26 +6,26 @@
       <div class="row justify-content-around justify-content-sm-between">
         <form
           class="col-sm-auto mr-sm-auto"
-          action="/post/likePost/<%= post.id %>?_method=PUT"
+          action="/post/like-post/<%= post.id %>?_method=PUT"
           method="POST"
         >
           <button class="btn btns-color fa fa-heart" type="submit"></button>
         </form>
         <h3 class="col-auto">Likes: <%= post.likes %></h3>
        
-        <!-- make this a put request for the zone-->
+        <!-- make this a get request for in season ingredients-->
         <form
           class="col-sm-auto mr-sm-auto"
-          action="/post/getZone/<%= post.id %>?_method=PUT"
+          action="/post/get-zone/<%= post.id %>?_method=PUT"
           method="POST"
         >
           <button class="btn btns-color fa fa-seedling" type="submit"></button>
         </form>
-        <h3 class="col-auto">Zone: <%= post.zone %></h3>
+        <h3 class="col-auto">Zone: <%= post.usdaZoneData?.zone %></h3>
         
         <%if(post.user == user.id){ %>
         <form
-          action="/post/deletePost/<%= post.id %>?_method=DELETE"
+          action="/post/delete-post/<%= post.id %>?_method=DELETE"
           method="POST"
           class="col-sm-auto ml-auto"
         >
